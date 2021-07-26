@@ -122,7 +122,10 @@ ConverterConversionException = @"ConverterConversionException";
             try
             {
                 var p = OS.popen(["/usr/bin/ibtool", aFilePath, "--compile", temporaryNibFilePath]);
-                if (p.wait() === 1)
+                var error;
+                while (error = p.stderr.read()) CPLog.info("IBTool error(" + typeof error + "): '" + error + "'");
+                var wait = p.wait();
+                if (wait === 1)
                     [CPException raise:ConverterConversionException reason:@"Could not compile file: " + aFilePath];
             }
             finally
@@ -131,7 +134,6 @@ ConverterConversionException = @"ConverterConversionException";
                 p.stdout.close();
                 p.stderr.close();
             }
-
         }
         else
         {
