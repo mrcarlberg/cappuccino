@@ -2,7 +2,7 @@
 [![Join the chat at https://gitter.im/cappuccino/cappuccino](https://badges.gitter.im/cappuccino/cappuccino.svg)](https://gitter.im/cappuccino/cappuccino?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Cappuccino: Build Desktop-Class Web Applications
-Hello!
+Hello again!
 Cappuccino is an open-source framework that supports building powerful, desktop-class applications running in any modern web browser. Instead of direct manipulation of HTML, CSS, and the DOM, applications are built using Objective-J, a superset of JavaScript modeled on Objective-C.
 
 Cappuccino faithfully implements the proven design patterns of NeXTSTEP/Apple's Cocoa frameworks, enabling the creation of incredibly complex and reliable applications with a fraction of the code.
