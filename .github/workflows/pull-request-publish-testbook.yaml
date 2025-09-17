@@ -135,6 +135,22 @@ jobs:
         with:
           path: gh-pages
           ref: gh-pages
+          
+      - name: Clean gh-pages for Pages
+        run: |
+          set -euo pipefail
+          test -d gh-pages
+          rm -rf gh-pages/.git gh-pages/.github || true
+          find gh-pages -maxdepth 1 -type f -name ".git*" -delete || true
+          find gh-pages -type f -name "*.xib" -delete || true
+          find gh-pages -type f -name "*xcode*" -delete || true
+          find gh-pages -name "Jakefile" -delete || true
+
+      - name: Upload Pages artifact (testbook/)
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: gh-pages
+
 
       - name: Upload Pages artifact (testbook/)
         uses: actions/upload-pages-artifact@v4
