@@ -134,15 +134,14 @@ jobs:
           path: gh-pages
           ref: gh-pages
 
-      # Optional: prune VCS/CI metadata from the served content
-      - name: Clean gh-pages for Pages (optional)
+      - name: Clean gh-pages for Pages
         run: |
           set -euo pipefail
           test -d gh-pages
           rm -rf gh-pages/.git gh-pages/.github || true
           find gh-pages -maxdepth 1 -type f -name ".git*" -delete || true
           find gh-pages -type f -name "*.xib" -delete || true
-          find gh-pages -name "*xcode*" -delete || true
+          find gh-pages -type f -name "*xcode*" -delete || true
           find gh-pages -name "Jakefile" -delete || true
 
       - name: Upload Pages artifact (testbook/)
